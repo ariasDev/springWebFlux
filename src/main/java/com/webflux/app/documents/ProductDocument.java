@@ -3,39 +3,41 @@ package com.webflux.app.documents;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document(collection = "products")
-public class ProductsDocument {
+public class ProductDocument {
 
     @Id
-    private string id;
+    private String id;
 
-    private string name;
+    private String name;
     private Double price;
     private Date createAt;
 
-    public ProductsDocument(string id, string name, Double price, Date createAt) {
+    public ProductDocument(String id, String name, Double price, Date createAt) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.createAt = createAt;
     }
 
-    public ProductsDocument() {
+    public ProductDocument() {
     }
 
-    public string getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(string id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public string getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(string name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -45,6 +47,16 @@ public class ProductsDocument {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductDocument{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", createAt=" + createAt +
+                '}';
     }
 
     public Date getCreateAt() {
